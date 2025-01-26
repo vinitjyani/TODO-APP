@@ -15,4 +15,5 @@ public class Task {
 	private String title;
 	private boolean completed;
 
+	// Lombok will auto-generate all getters, setters, and other utility methods
 }

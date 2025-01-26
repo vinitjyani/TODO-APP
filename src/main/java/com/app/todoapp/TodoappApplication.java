@@ -1,5 +1,6 @@
 package com.app.todoapp;
 
+import com.app.todoapp.models.Task;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,6 +10,8 @@ public class TodoappApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(TodoappApplication.class, args);
+
+		}
 	}
 
-}
+
