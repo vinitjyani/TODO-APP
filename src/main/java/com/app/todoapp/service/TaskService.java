@@ -17,6 +17,7 @@ public class TaskService {
 
 
     public List<Task> getAllTasks() {
+        System.out.println("Below is the list of all the tasks");
     return taskrepository.findAll();
     }
 
@@ -27,6 +28,13 @@ public class TaskService {
         taskrepository.save(task);
 
         return task;
+    }
+
+    public Task updatetask(long id,String title){
+        Task task = taskrepository.findById(id).orElseThrow(()-> new IllegalArgumentException("Invalid task id"));
+        task.setTitle(title);
+       return taskrepository.save(task);
+
     }
 
     public void deleteTask(long id) {

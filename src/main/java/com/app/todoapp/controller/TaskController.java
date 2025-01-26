@@ -5,6 +5,7 @@ import com.app.todoapp.models.Task;
 import com.app.todoapp.service.TaskService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/tasks")
@@ -23,9 +24,20 @@ public class TaskController {
 
     // Create a new task
     @PostMapping
-    public Task createTask(@RequestParam String title) {
+    public Task createTask(@RequestBody Map<String, String> payload) {
+        String title = payload.get("title");
         return taskService.createTask(title);
     }
+    @PutMapping("/{id}")
+    public Task updateTask(@RequestBody Map<String, String> payload, @PathVariable long id) {
+        // Extract the title from the request payload
+        String title = payload.get("title");
+
+        // Call the service to update the task
+        return taskService.updatetask(id,title);
+    }
+
+
 
     // Delete a task by ID
     @DeleteMapping("/{id}")
